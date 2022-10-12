@@ -5,7 +5,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Importando componentes para essa pagina
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
-import Cardapio from './pages/Cardapio';
+import ListarCachorros from './pages/Cachorros';
+import ImagensCachorros from './pages/Cachorros/imagens';
+import Localizacao from './pages/Localizacao';
+
 
 
 // Função da minha página
@@ -17,8 +20,10 @@ function RoutesApp(){
        <br />
        <Routes>
          <Route path="/" element={ <Home/> } />
-         <Route path="/sobre" element={ <Sobre/> } />
-         <Route path="/cardapio" element={ <Cardapio/> } />
+         <Route path="/Sobre" element={ <Sobre/> } />
+         <Route path="/Cachorros/" element={ <ListarCachorros/> } />
+         <Route path="/Cachorros/imagens" element={ <ImagensCachorros/> } />
+         <Route path="/Localizacao" element={ <Localizacao/> } />
        </Routes>
      </BrowserRouter>
   )

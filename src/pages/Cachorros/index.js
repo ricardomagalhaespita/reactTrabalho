@@ -7,42 +7,40 @@ import Button from 'react-bootstrap/Button';
 
 
 // Funão principal da minha página
-function Cardapio() {
+function Moedas() {
 
   // Criando variaveis
-  const [moveis, setMovies] = useState([]);
+  const [listaMoedas, setMoedas] = useState([]);
 
   // Após o carregamento da página executar essa função
   // Estamos consumindo uma API
   useEffect (()=>{
-    let url = "https://reactnative.dev/movies.json";
+    let url = "https://dog.ceo/api/breeds/list/all";
 
     fetch(url)
     .then((response) => response.json())
     .then((json) => {
-        setMovies(json.movies);
+        console.log(json.message.terrier);
+        setMoedas(json.message.terrier);
     })
+
   },  []);
 
   // Visualização do usuário
   return (
     <div>
-      <h4>Segue os resultados da API:</h4>
+      <h4>Todas as raças de cachorros:</h4>
 
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Ano</th>
+            <th>Raças</th>
           </tr>
         </thead>
         <tbody>
-          {moveis.map( movie => (
+          {listaMoedas.map( md => (
             <tr>
-              <td>{movie.id}</td>
-              <td>{movie.title}</td>
-              <td>{movie.releaseYear}</td>
+              <td>{md}</td>
             </tr>
           ))}
         </tbody>
@@ -58,6 +56,6 @@ function Cardapio() {
 
 
 // Exportando função
-export default Cardapio;
+export default Moedas;
   
   
